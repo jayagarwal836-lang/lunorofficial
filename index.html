@@ -3,181 +3,118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUNOR | Premium Tshirts
-s</title>
+<title>LUNOR | Wear The Mood</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box}
 body{
-font-family:Arial,sans-serif;
-background:linear-gradient(135deg,#0f172a,#1e293b,#2563eb);
-color:white;
+font-family:Montserrat,sans-serif;
+background:#0a0a0a;
+color:#fff;
 }
-header{
+.hero{
+height:100vh;
+background:url("https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1400&q=80") center/cover;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
-padding:40px 20px;
 }
-header h1{font-size:55px;color:#FFD700;}
-header p{font-size:20px;margin:10px 0;}
+.hero::before{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,.65);
+}
+.content{
+position:relative;
+z-index:2;
+padding:20px;
+}
+.logo{
+font-size:60px;
+font-weight:800;
+letter-spacing:8px;
+}
+.tag{
+margin:15px 0;
+font-size:18px;
+color:#d0d0d0;
+letter-spacing:2px;
+}
 .btn{
 display:inline-block;
-background:#FFD700;
-color:black;
-padding:12px 22px;
+margin-top:20px;
+padding:14px 35px;
+background:#fff;
+color:#000;
+text-decoration:none;
 border-radius:30px;
-text-decoration:none;
-font-weight:bold;
-margin-top:15px;
+font-weight:700;
 }
-.container{
-width:90%;
-max-width:1100px;
+.info{
+padding:60px 20px;
+text-align:center;
+}
+.info h2{
+font-size:32px;
+margin-bottom:15px;
+}
+.info p{
+max-width:700px;
 margin:auto;
+line-height:1.8;
+color:#cfcfcf;
 }
-.products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-padding:30px 0;
-}
-.card{
-background:white;
-color:black;
-border-radius:15px;
-padding:15px;
+.contact{
+padding:50px 20px;
 text-align:center;
+background:#111;
 }
-.card img{
-width:100%;
-border-radius:10px;
-}
-.card h3{margin:10px 0;}
-.card p{margin:5px 0;}
-.payments{
-background:#111827;
-padding:30px;
-border-radius:15px;
-margin:30px 0;
-}
-.payments h2{color:#FFD700;}
-.paybtn{
-display:block;
-background:#FFD700;
-color:black;
+.contact a{
+color:#fff;
 text-decoration:none;
-padding:12px;
-border-radius:8px;
-margin-top:12px;
-font-weight:bold;
-text-align:center;
 }
 footer{
+padding:20px;
 text-align:center;
-padding:25px;
-background:#0f172a;
-margin-top:30px;
+color:#888;
+}
+@media(max-width:768px){
+.logo{font-size:42px}
+.tag{font-size:15px}
 }
 </style>
 </head>
-
 <body>
 
-<header>
-<h1>LUNOR</h1>
-<p>Premium Tshirts
+<section class="hero">
+<div class="content">
+<div class="logo">LUNOR</div>
+<div class="tag">WEAR THE MOOD</div>
+<a href="https://wa.me/919024520640" class="btn">ORDER NOW</a>
+</div>
+</section>
+
+<section class="info">
+<h2>Coming Soon</h2>
+<p>
+LUNOR is a premium streetwear brand built for bold everyday style.
+Oversized fits, minimal aesthetics and limited drops are coming soon.
 </p>
-<p>Only in Jaipur & Bhilwara</p>
+</section>
 
-<a class="btn"
-href="https://wa.me/917014807707?text=Hi%20Lunor,%20I%20want%20to%20order."
-target="_blank">
-Order via WhatsApp
-</a>
+<section class="contact">
+<h2>Contact Us</h2>
+<p>📞 <a href="tel:9024520640">9024520640</a></p>
+<p>💬 <a href="https://wa.me/919024520640">WhatsApp Us</a></p>
+<p style="margin-top:10px;">Payment: <b>50% Advance</b> or <b>Full Payment</b></p>
+</section>
 
-</header>
-
-<div class="container">
-
-<h2 style="text-align:center;color:#FFD700;">Our Collection</h2>
-
-<div class="products">
-
-<div class="card">
-<img src="https://via.placeholder.com/300x350?text=Tshirts
-+1">
-<h3>Classic White Tshirts
-</h3>
-<p>₹999</p>
-<p>Sizes: S M L XL</p>
-<a class="paybtn"
-href="https://wa.me/917014807707?text=I%20want%20Classic%20White%20Tshirts
-">
-Order Now
-</a>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/300x350?text=Tshirts
-+2">
-<h3>Black Premium Tshirts
-</h3>
-<p>₹1199</p>
-<p>Sizes: S M L XL</p>
-<a class="paybtn"
-href="https://wa.me/917014807707?text=I%20want%20Black%20Premium%20Tshirts
-">
-Order Now
-</a>
-</div>
-
-<div class="card">
-<img src="https://via.placeholder.com/300x350?text=Tshirts
-+3">
-<h3>Sky Blue Tshirts
-</h3>
-<p>₹1099</p>
-<p>Sizes: S M L XL</p>
-<a class="paybtn"
-href="https://wa.me/917014807707?text=I%20want%20Sky%20Blue%20Tshirts
-">
-Order Now
-</a>
-</div>
-
-</div>
-
-<div class="payments">
-
-<h2>Payment Options</h2>
-
-<p style="margin-top:10px;">
-✔ 50% Advance Payment Required
-</p>
-
-<p style="margin-top:8px;">
-Remaining 50% on Delivery.
-</p>
-
-<a class="paybtn"
-href="https://wa.me/917014807707?text=I%20want%20to%20pay%2050%%20advance">
-Pay 50% Advance
-</a>
-
-<a class="paybtn"
-href="https://wa.me/917014807707?text=I%20want%20to%20make%20full%20payment">
-Full Payment Now
-</a>
-
-</div>
-
-</div>
-
-<footer>
-
-<p>© 2026 LUNOR</p>
-<p>Jaipur • Bhilwara</p>
-
-</footer>
+<footer>© 2026 LUNOR. All Rights Reserved.</footer>
 
 </body>
 </html>
