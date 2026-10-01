@@ -3,118 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LUNOR | Wear The Mood</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-font-family:Montserrat,sans-serif;
-background:#0a0a0a;
-color:#fff;
-}
-.hero{
-height:100vh;
-background:url("https://images.unsplash.com/photo-1523381210434-271e8be1f52b?auto=format&fit=crop&w=1400&q=80") center/cover;
-position:relative;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-}
-.hero::before{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.65);
-}
-.content{
-position:relative;
-z-index:2;
-padding:20px;
-}
-.logo{
-font-size:60px;
-font-weight:800;
-letter-spacing:8px;
-}
-.tag{
-margin:15px 0;
-font-size:18px;
-color:#d0d0d0;
-letter-spacing:2px;
-}
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:14px 35px;
-background:#fff;
-color:#000;
-text-decoration:none;
-border-radius:30px;
-font-weight:700;
-}
-.info{
-padding:60px 20px;
-text-align:center;
-}
-.info h2{
-font-size:32px;
-margin-bottom:15px;
-}
-.info p{
-max-width:700px;
-margin:auto;
-line-height:1.8;
-color:#cfcfcf;
-}
-.contact{
-padding:50px 20px;
-text-align:center;
-background:#111;
-}
-.contact a{
-color:#fff;
-text-decoration:none;
-}
-footer{
-padding:20px;
-text-align:center;
-color:#888;
-}
-@media(max-width:768px){
-.logo{font-size:42px}
-.tag{font-size:15px}
-}
-</style>
+<title>LUNOR | Beyond Ordinary</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<section class="hero">
-<div class="content">
-<div class="logo">LUNOR</div>
-<div class="tag">WEAR THE MOOD</div>
-<a href="https://wa.me/919024520640" class="btn">ORDER NOW</a>
+<div id="loader" class="loader">
+  <h1>LUNOR</h1>
+  <p>Beyond Ordinary</p>
 </div>
+
+<nav id="nav">
+  <div class="logo">LUNOR</div>
+  <div class="nav-links">
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="https://instagram.com/lunor_clo" target="_blank">Instagram</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="stars"></div>
+  <div class="moon"></div>
+
+  <div class="hero-content">
+    <span class="tagline">PREMIUM STREETWEAR</span>
+    <h1>LUNOR</h1>
+    <h2>BEYOND ORDINARY</h2>
+    <p>240 GSM Oversized Tees • Limited First Drop</p>
+
+    <div class="hero-buttons">
+      <a href="#shop" class="btn">Explore Collection →</a>
+      <a href="https://instagram.com/lunor_clo" target="_blank" class="btn btn-outline">Instagram</a>
+    </div>
+  </div>
 </section>
 
-<section class="info">
-<h2>Coming Soon</h2>
-<p>
-LUNOR is a premium streetwear brand built for bold everyday style.
-Oversized fits, minimal aesthetics and limited drops are coming soon.
-</p>
+<div class="marquee">
+  <span> DROP 001 • PREMIUM STREETWEAR • LIMITED OFFER • COMING SOON • LUNOR • </span>
+</div>
+
+<section id="shop" class="container">
+  <div class="toolbar">
+    <input id="search" placeholder="Search products...">
+    <select id="filter">
+      <option>All</option>
+      <option>Black</option>
+      <option>White</option>
+      <option>Brown</option>
+      <option>Green</option>
+      <option>Pink</option>
+    </select>
+  </div>
+
+  <div id="products" class="products"></div>
 </section>
 
-<section class="contact">
-<h2>Contact Us</h2>
-<p>📞 <a href="tel:9024520640">9024520640</a></p>
-<p>💬 <a href="https://wa.me/919024520640">WhatsApp Us</a></p>
-<p style="margin-top:10px;">Payment: <b>50% Advance</b> or <b>Full Payment</b></p>
+<section id="about" class="about">
+  <h2>About Lunor</h2>
+  <p>Lunor is a Gen-Z streetwear brand inspired by moon aesthetics. Premium oversized fits, clean luxury vibes and 240 GSM comfort.</p>
 </section>
 
-<footer>© 2026 LUNOR. All Rights Reserved.</footer>
+<footer>© 2026 LUNOR • Jaipur • Link in Bio</footer>
+
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX?text=Hi%20Lunor,%20I%20want%20to%20order." target="_blank">💬</a>
+
+<script>
+const names=["Eclipse","Lunar Drift","Midnight Wave","Orbit","Nova","Shadow","Pulse","Void","Halo","Zenith","Astro","Comet","Gravity","Nebula","Phantom","Horizon","Aura","Cosmic","Nightfall","Luna Classic"];
+const colors=["Black","White","Brown","Green","Pink"];
+const products=document.getElementById("products");
+
+function render(){
+  products.innerHTML="";
+  const search=document.getElementById("search").value.toLowerCase();
+  const filter=document.getElementById("filter").value;
+
+  names.forEach((name,i)=>{
+    const color=colors[i%5];
+    if((filter==="All"||filter===color)&&name.toLowerCase().includes(search)){
+      products.innerHTML+=`
+      <div class="card">
+        <div class="heart">♡</div>
+        <div class="placeholder"></div>
+        <div class="info">
+          <h3>${name} Tee</h3>
+          <p>${color} • 240 GSM • Oversized Fit</p>
+          <div class="old">₹999</div>
+          <div class="new">Offer ₹699</div>
+          <div class="badge">LIMITED OFFER</div>
+          <select>
+            <option>Select Size</option>
+            <option>S</option><option>M</option><option>L</option><option>XL</option>
+          </select>
+          <a class="wabtn" href="https://wa.me/91XXXXXXXXXX?text=Hi%20Lunor,%20I%20want%20to%20order%20${encodeURIComponent(name+' Tee')}" target="_blank">Order on WhatsApp</a>
+        </div>
+      </div>`;
+    }
+  });
+
+  document.querySelectorAll(".card").forEach(card=>{
+    card.onmousemove=e=>{
+      const r=card.getBoundingClientRect();
+      const x=e.clientX-r.left;
+      const y=e.clientY-r.top;
+      card.style.transform=`perspective(900px) rotateY(${(x-r.width/2)/22}deg) rotateX(${-(y-r.height/2)/22}deg) scale(1.03)`;
+    };
+    card.onmouseleave=()=>card.style.transform="";
+  });
+}
+
+render();
+search.oninput=render;
+filter.onchange=render;
+
+document.addEventListener("mousemove",e=>{
+  document.body.style.setProperty("--x",e.clientX+"px");
+  document.body.style.setProperty("--y",e.clientY+"px");
+});
+
+window.addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40));
+
+setTimeout(()=>loader.classList.add("hide"),1800);
+</script>
 
 </body>
 </html>
