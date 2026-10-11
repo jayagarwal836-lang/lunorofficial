@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#111111">
+<title>LUNOR — Born After Dark</title>
+<meta name="description" content="Discover LUNOR premium oversized streetwear. Designed for those who were born after dark.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --black:#11110f;
+  --white:#f5f3ee;
+  --muted:#99978f;
+  --line:rgba(245,243,238,.15);
+  --lime:#d8ff65;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif}
+button,input,select{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer}
+img,svg{display:block;max-width:100%}
+.announcement{text-align:center;background:var(--lime);color:#151515;padding:9px 12px;font-size:10px;font-weight:700;letter-spacing:1.8px}
+header{height:76px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20;background:rgba(17,17,15,.94);backdrop-filter:blur(14px)}
+.logo{font-family:'Space Grotesk',sans-serif;font-size:31px;letter-spacing:5px;font-weight:700}
+.logo span{color:var(--lime)}
+.nav{display:flex;gap:30px;align-items:center;font-size:12px;letter-spacing:1px}
+.nav a:hover{color:var(--lime)}
+.header-actions{display:flex;gap:17px;align-items:center}
+.icon-btn{border:0;background:none;color:var(--white);font-size:12px;letter-spacing:1px}
+.cart-count{display:inline-flex;background:var(--lime);color:#111;width:20px;height:20px;align-items:center;justify-content:center;border-radius:50%;font-size:10px;margin-left:4px;font-weight:700}
+.menu-btn{display:none}
+.hero{min-height:570px;padding:76px 7% 70px;position:relative;overflow:hidden;display:flex;align-items:center;background:radial-gradient(ellipse at 78% 45%,#33342a 0%,#191a16 34%,#11110f 70%)}
+.hero:after{content:"";position:absolute;width:460px;height:460px;border:1px solid rgba(216,255,101,.13);border-radius:50%;right:4%;top:7%;box-shadow:0 0 0 40px rgba(216,255,101,.025),0 0 0 90px rgba(216,255,101,.02)}
+.hero-content{position:relative;z-index:2;max-width:660px}
+.eyebrow{font-size:10px;letter-spacing:3px;color:var(--lime);font-weight:700;margin-bottom:24px}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(55px,9vw,115px);line-height:.88;letter-spacing:-7px;font-weight:600}
+.hero h1 span{color:var(--lime);display:block}
+.hero-desc{color:#b6b4ab;font-size:13px;line-height:1.9;max-width:360px;margin:27px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:20px;padding:16px 22px;background:var(--lime);color:#141414;border:1px solid var(--lime);font-size:11px;font-weight:700;letter-spacing:1px;transition:.2s}
+.btn:hover{background:transparent;color:var(--lime)}
+.btn-outline{background:transparent;color:var(--white);border-color:#555}
+.hero-note{margin-top:25px;font-size:10px;color:#89877f;letter-spacing:1px}
+.hero-orbit{position:absolute;right:12%;top:19%;z-index:1;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle at 33% 28%,#f6f3db,#b8b6a4 20%,#5d5e54 53%,#252620 72%);box-shadow:0 0 90px #d8ff6515;opacity:.78}
+.hero-orbit:after{content:"";position:absolute;inset:-24px;border:1px solid #d8ff6540;border-radius:50%}
+.ticker{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:15px 0;white-space:nowrap;color:var(--lime);font-family:'Space Grotesk',sans-serif;font-size:12px;letter-spacing:3px}
+.ticker-inner{display:flex;justify-content:space-around;gap:35px}
+.ticker span:after{content:" ✳";margin-left:30px}
+.section{padding:78px 6%}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:30px}
+.section-kicker{font-size:10px;color:var(--lime);letter-spacing:2.5px;margin-bottom:12px}
+.section h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(29px,4vw,48px);letter-spacing:-1.5px}
+.section-sub{color:var(--muted);font-size:12px;line-height:1.8;margin-top:9px}
+.product-tools{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.search-box,.filter-select{background:#1c1c19;color:var(--white);border:1px solid var(--line);padding:12px 14px;font-size:11px;outline:none}
+.search-box{flex:1;min-width:150px}
+.filter-select{min-width:120px}
+.search-box:focus,.filter-select:focus{border-color:var(--lime)}
+.products-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:25px 15px}
+.product-card{min-width:0}
+.product-art{position:relative;aspect-ratio:4/4.8;overflow:hidden;background:#20201c;display:flex;align-items:center;justify-content:center}
+.product-art:before{content:"";position:absolute;width:75%;height:75%;border:1px solid #ffffff08;border-radius:50%}
+.product-tag{position:absolute;top:12px;left:12px;background:var(--lime);color:#171717;font-size:9px;font-weight:700;letter-spacing:.8px;padding:7px 8px;z-index:2}
+.quick-add{position:absolute;bottom:12px;left:12px;right:12px;padding:12px;background:var(--white);color:#111;border:0;font-size:10px;font-weight:700;letter-spacing:1px;opacity:0;transform:translateY(5px);transition:.2s;z-index:2}
+.product-card:hover .quick-add,.quick-add:focus{opacity:1;transform:translateY(0)}
+.shirt-svg{width:92%;height:94%;position:relative;z-index:1;filter:drop-shadow(0 18px 15px #0005);transition:transform .3s}
+.product-card:hover .shirt-svg{transform:scale(1.035)}
+.product-info{padding:14px 2px}
+.product-title-row{display:flex;justify-content:space-between;gap:8px;align-items:start}
+.product-name{font-size:13px;font-weight:600}
+.product-price{font-size:12px;white-space:nowrap}
+.old-price{color:#777;text-decoration:line-through;margin-right:5px;font-size:10px}
+.product-color{font-size:10px;color:var(--muted);margin-top:7px}
+.color-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px}
+.product-size{width:100%;margin-top:12px;padding:9px;background:#1b1b18;border:1px solid var(--line);color:var(--white);font-size:11px}
+.no-results{padding:45px 0;color:var(--muted);font-size:13px;grid-column:1/-1}
+.story{padding:75px 6%;background:var(--lime);color:#151515;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.story .section-kicker{color:#414b24}
+.story h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(35px,5.5vw,65px);letter-spacing:-3px;line-height:1}
+.story p{font-size:13px;line-height:1.9;max-width:430px;margin-top:22px}
+.story .btn{background:#151515;color:var(--white);border-color:#151515;margin-top:25px}
+.story .btn:hover{background:transparent;color:#151515}
+.story-stamp{border:1px solid #15151560;aspect-ratio:1;max-width:320px;width:100%;justify-self:center;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;transform:rotate(-9deg)}
+.story-stamp strong{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5vw,56px);letter-spacing:-3px}
+.story-stamp span{font-size:10px;letter-spacing:3px;margin-top:12px}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line);border-top:1px solid var(--line)}
+.benefit{padding:30px 18px;text-align:center;border-right:1px solid var(--line)}
+.benefit:last-child{border:0}
+.benefit strong{font-family:'Space Grotesk',sans-serif;font-size:13px;letter-spacing:1px}
+.benefit p{font-size:11px;color:var(--muted);margin-top:9px;line-height:1.7}
+.newsletter{padding:75px 6%;text-align:center;background:#191a16}
+.newsletter h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,5vw,54px);letter-spacing:-2px}
+.newsletter p{color:var(--muted);font-size:12px;margin:15px 0 25px}
+.newsletter-form{display:flex;max-width:420px;margin:auto}
+.newsletter-form input{flex:1;min-width:0;padding:15px;background:#111;border:1px solid var(--line);color:white;font-size:12px;outline:none}
+.newsletter-form button{border:0;padding:0 18px;background:var(--lime);font-size:10px;font-weight:700;letter-spacing:1px}
+footer{padding:48px 6% 25px}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:35px;padding-bottom:35px;border-bottom:1px solid var(--line)}
+.footer-brand p{font-size:12px;color:var(--muted);line-height:1.8;max-width:270px;margin-top:15px}
+.footer-col h3{font-size:10px;letter-spacing:2px;margin-bottom:17px}
+.footer-col a{display:block;color:var(--muted);font-size:12px;margin-bottom:12px}
+.footer-col a:hover{color:var(--lime)}
+.footer-bottom{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-top:20px;color:#777;font-size:10px}
+.overlay{position:fixed;inset:0;background:#0009;z-index:29;opacity:0;pointer-events:none;transition:.25s}
+.overlay.active{opacity:1;pointer-events:auto}
+.cart-panel{position:fixed;z-index:30;top:0;right:0;width:min(440px,100%);height:100dvh;background:#171714;padding:25px;transform:translateX(105%);transition:.3s;display:flex;flex-direction:column}
+.cart-panel.active{transform:translateX(0)}
+.cart-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.cart-head h2{font-family:'Space Grotesk',sans-serif;letter-spacing:2px;font-size:19px}
+.close-btn{border:0;background:none;color:white;font-size:27px}
+.cart-items{flex:1;overflow:auto;padding:12px 0}
+.cart-item{display:grid;grid-template-columns:72px 1fr auto;gap:13px;align-items:center;padding:15px 0;border-bottom:1px solid var(--line)}
+.cart-thumb{width:72px;height:85px;display:flex;align-items:center;justify-content:center}
+.cart-thumb svg{width:100%;height:100%}
+.cart-item h3{font-size:12px;margin-bottom:6px}
+.cart-item p{font-size:10px;color:var(--muted);margin-bottom:7px}
+.quantity{display:flex;gap:10px;align-items:center;font-size:11px}
+.quantity button,.remove-item{background:none;border:0;color:var(--white);font-size:15px}
+.remove-item{color:#aaa;font-size:10px;text-decoration:underline;margin-top:7px}
+.cart-bottom{padding-top:20px;border-top:1px solid var(--line)}
+.total-row{display:flex;justify-content:space-between;margin-bottom:17px;font-size:13px}
+.checkout{width:100%}
+.cart-help{color:var(--muted);font-size:10px;line-height:1.7;margin-top:13px}
+.empty-cart{text-align:center;color:var(--muted);padding:60px 10px;font-size:13px;line-height:2}
+.toast{position:fixed;bottom:22px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:var(--lime);color:#111;padding:13px 20px;font-size:11px;font-weight:700;z-index:60;transition:.25s;text-align:center;max-width:90vw}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){
+ .hero-orbit{right:-5%;width:230px;height:230px;opacity:.38}
+ .products-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px 12px}
+ .quick-add{opacity:1;transform:none}
+ .section{padding:60px 5%}
+}
+@media(max-width:600px){
+ header{height:65px;padding:0 5%}
+ .logo{font-size:25px;letter-spacing:4px}
+ .nav{display:none}
+ .menu-btn{display:inline-block}
+ .hero{min-height:550px;padding:65px 6%}
+ .hero h1{font-size:clamp(56px,15vw,83px);letter-spacing:-4px}
+ .hero-orbit{width:180px;height:180px;top:15%;right:-45px;opacity:.28}
+ .hero:after{right:-150px}
+ .hero-desc{max-width:300px}
+ .section-head{align-items:start;flex-direction:column}
+ .filter-select{flex:1;min-width:0}
+ .search-box{flex-basis:100%}
+ .product-name{font-size:12px}
+ .product-price{font-size:11px}
+ .old-price{display:block;margin:0 0 3px}
+ .story{grid-template-columns:1fr;gap:35px;padding:60px 6%}
+ .story-stamp{max-width:220px}
+ .benefit{padding:23px 7px}
+ .benefit strong{font-size:10px}
+ .benefit p{font-size:10px}
+ .footer-top{grid-template-columns:1fr 1fr;gap:30px 20px}
+ .footer-brand{grid-column:1/-1}
+ .newsletter{padding:60px 6%}
+}
+</style>
+</head>
+<body>
+
+<div class="announcement">DROP 001 IS LIVE — INTRODUCTORY PRICE ₹699</div>
+
+<header>
+  <a href="#home" class="logo">LUN<span>O</span>R</a>
+  <nav class="nav">
+    <a href="#shop">SHOP ALL</a>
+    <a href="#story">OUR STORY</a>
+    <a href="#newsletter">JOIN THE CLUB</a>
+  </nav>
+  <div class="header-actions">
+    <button class="icon-btn menu-btn" onclick="document.getElementById('shop').scrollIntoView()">SHOP</button>
+    <button class="icon-btn" id="openCart">BAG <span class="cart-count" id="cartCount">0</span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-orbit"></div>
+  <div class="hero-content">
+    <div class="eyebrow">INDEPENDENT STREETWEAR · DROP 001</div>
+    <h1>BORN<br>AFTER <span>DARK.</span></h1>
+    <p class="hero-desc">For the ones who think differently, move quietly and never fit inside the lines. Your world. Your rules. Your LUNOR.</p>
+    <a href="#shop" class="btn">EXPLORE THE DROP <span>↗</span></a>
+    <p class="hero-note">OVERSIZED FIT · EVERYDAY COMFORT · YOUR OWN UNIVERSE</p>
+  </div>
+</section>
+
+<div class="ticker"><div class="ticker-inner">
+  <span>NOT MADE TO FIT IN</span><span>MADE FOR YOUR OWN WORLD</span><span>STAY DIFFERENT</span><span>LUNOR AFTER DARK</span>
+</div></div>
+
+<section class="section" id="shop">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">THE FIRST COLLECTION</div>
+      <h2>DROP 001<span style="color:var(--lime)">.</span></h2>
+      <p class="section-sub">Small details. Big energy. Find your everyday uniform.</p>
+    </div>
+    <p class="section-sub">8 DESIGNS · INTRODUCTORY PRICE ₹699</p>
+  </div>
+
+  <div class="product-tools">
+    <input class="search-box" id="searchInput" type="search" placeholder="Search your next favourite tee...">
+    <select class="filter-select" id="colorFilter" aria-label="Filter by colour">
+      <option value="all">All colours</option>
+      <option>Black</option><option>White</option><option>Brown</option><option>Green</option><option>Pink</option>
+    </select>
+    <select class="filter-select" id="sortFilter" aria-label="Sort products">
+      <option value="featured">Featured</option>
+      <option value="name">Name: A–Z</option>
+      <option value="price">Price: Low–High</option>
+    </select>
+  </div>
+
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<section class="story" id="story">
+  <div>
+    <div class="section-kicker">MORE THAN A T-SHIRT</div>
+    <h2>WEAR YOUR<br>OWN WORLD.</h2>
+    <p>LUNOR is for the people who don't need permission to be themselves. Inspired by late-night thoughts, moonlit skies and the freedom to be different. Simple silhouettes. Statements that mean something.</p>
+    <a href="#shop" class="btn">FIND YOUR PIECE ↗</a>
+  </div>
+  <div class="story-stamp">
+    <span>INDEPENDENT STREETWEAR</span>
+    <strong>LUNOR®</strong>
+    <span>BORN AFTER DARK · EST. 2026</span>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="benefit"><strong>01 — OVERSIZED ENERGY</strong><p>Relaxed silhouettes made for your everyday rotation.</p></div>
+  <div class="benefit"><strong>02 — YOUR OWN STYLE</strong><p>Express yourself. Wear what feels like you.</p></div>
+  <div class="benefit"><strong>03 — EASY ORDERING</strong><p>Send your selection directly to us on WhatsApp.</p></div>
+</section>
+
+<section class="newsletter" id="newsletter">
+  <div class="section-kicker">WELCOME TO THE AFTER HOURS CLUB</div>
+  <h2>DON'T MISS THE NEXT DROP.</h2>
+  <p>Get in touch with LUNOR for updates on upcoming collections.</p>
+  <form class="newsletter-form" id="newsletterForm">
+    <input type="email" id="emailInput" placeholder="Your email address" aria-label="Your email address" required>
+    <button type="submit">JOIN US ↗</button>
+  </form>
+</section>
+</main>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#home" class="logo">LUN<span>O</span>R</a>
+      <p>Born after dark. Made for your own world. Independent streetwear for people who stay different.</p>
+    </div>
+    <div class="footer-col">
+      <h3>EXPLORE</h3>
+      <a href="#shop">Shop the drop</a>
+      <a href="#story">Our story</a>
+      <a href="#newsletter">Join the club</a>
+    </div>
+    <div class="footer-col">
+      <h3>GET IN TOUCH</h3>
+      <a href="https://www.instagram.com/lunor_clo/" target="_blank" rel="noopener">Instagram ↗</a>
+      <a href="https://wa.me/919024520640" target="_blank" rel="noopener">WhatsApp ↗</a>
+      <a href="#shop">Order enquiries</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 LUNOR. ALL RIGHTS RESERVED.</span>
+    <span>BORN AFTER DARK.</span>
+  </div>
+</footer>
+
+<div class="overlay" id="overlay"></div>
+<aside class="cart-panel" id="cartPanel" aria-label="Shopping bag">
+  <div class="cart-head">
+    <h2>YOUR BAG <span style="color:var(--lime)">.</span></h2>
+    <button class="close-btn" id="closeCart" aria-label="Close bag">×</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-bottom">
+    <div class="total-row"><span>SUBTOTAL</span><strong id="cartTotal">₹0</strong></div>
+    <button class="btn checkout" id="checkout">ORDER ON WHATSAPP ↗</button>
+    <p class="cart-help">Your order request opens in WhatsApp. We'll confirm stock, delivery charges and payment details with you. Your order is not confirmed until we reply.</p>
+  </div>
+</aside>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const WHATSAPP_NUMBER = "919024520640";
+const INSTAGRAM_URL = "https://www.instagram.com/lunor_clo/";
+
+const products = [
+  {id:1,name:"Midnight 11:11",color:"Black",hex:"#171717",print:"11:11",sub:"BORN AFTER DARK",tag:"BESTSELLER",ink:"#d8ff65"},
+  {id:2,name:"Classic Moon",color:"White",hex:"#dedbd2",print:"MOON",sub:"FIND YOUR LIGHT",tag:"ESSENTIAL",ink:"#25251f"},
+  {id:3,name:"No Signal",color:"Brown",hex:"#654b3b",print:"NO SIGNAL",sub:"LOST IN MY OWN WORLD",tag:"NEW DROP",ink:"#eee1c7"},
+  {id:4,name:"After Hours",color:"Black",hex:"#242421",print:"AFTER",sub:"HOURS / 001",tag:"LIMITED",ink:"#d8ff65"},
+  {id:5,name:"Stay Different",color:"Green",hex:"#526653",print:"STAY",sub:"DIFFERENT.",tag:"NEW DROP",ink:"#e5e6d8"},
+  {id:6,name:"Soft Chaos",color:"Pink",hex:"#d5a7b1",print:"SOFT",sub:"CHAOS CLUB",tag:"LIMITED",ink:"#30202b"},
+  {id:7,name:"Offline Club",color:"White",hex:"#e7e4dc",print:"OFFLINE",sub:"AVAILABLE TO MYSELF",tag:"FAVOURITE",ink:"#25251f"},
+  {id:8,name:"Lunar Archive",color:"Brown",hex:"#705b4b",print:"LUNAR",sub:"ARCHIVE / 011",tag:"DROP 001",ink:"#f1e8d8"}
+].map(p=>({...p,price:699,oldPrice:999}));
+
+let cart = [];
+let toastTimer;
+
+function shirtSVG(p,uid="shirt"){
+  const safeId = String(uid).replace(/[^a-zA-Z0-9_-]/g,"");
+  return `<svg class="shirt-svg" viewBox="0 0 300 330" role="img" aria-label="${p.name} ${p.color} T-shirt">
+    <defs>
+      <linearGradient id="fabric${safeId}" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="${p.hex}"/>
+        <stop offset="55%" stop-color="${p.hex}"/>
+        <stop offset="100%" stop-color="#000000"/>
+      </linearGradient>
+      <linearGradient id="shade${safeId}" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#ffffff" stop-opacity=".12"/>
+        <stop offset="45%" stop-color="#ffffff" stop-opacity="0"/>
+        <stop offset="100%" stop-color="#000000" stop-opacity=".24"/>
+      </linearGradient>
+    </defs>
+    <ellipse cx="150" cy="300" rx="85" ry="9" fill="#000" opacity=".25"/>
+    <path d="M104 45 L125 35 Q150 53 175 35 L196 45 L252 75 L226 127 L200 113 L204 279 Q150 293 96 279 L100 113 L74 127 L48 75 Z" fill="url(#fabric${safeId})" stroke="#ffffff18" stroke-width="1.5"/>
+    <path d="M104 45 L125 35 Q150 53 175 35 L196 45 L252 75 L226 127 L200 113 L204 279 Q150 293 96 279 L100 113 L74 127 L48 75 Z" fill="url(#shade${safeId})"/>
+    <path d="M125 36 Q150 68 175 36" fill="none" stroke="#ffffff35" stroke-width="3"/>
+    <path d="M126 40 Q150 61 174 40" fill="none" stroke="#00000050" stroke-width="2"/>
+    <path d="M100 114 L96 279 M200 114 L204 279" stroke="#ffffff18" stroke-width="1"/>
+    <path d="M99 270 Q150 283 201 270" fill="none" stroke="#ffffff20" stroke-width="1"/>
+    <text x="150" y="151" text-anchor="middle" fill="${p.ink}" font-family="Arial,sans-serif" font-size="${p.print.length>8?14: p.print.length>5?18:25}" font-weight="800" letter-spacing="1">${p.print}</text>
+    <path d="M125 162 L175 162" stroke="${p.ink}" stroke-width="1" opacity=".7"/>
+    <text x="150" y="177" text-anchor="middle" fill="${p.ink}" font-family="Arial,sans-serif" font-size="7" letter-spacing="1.4">${p.sub}</text>
+    <text x="150" y="254" text-anchor="middle" fill="${p.ink}" opacity=".65" font-family="Arial,sans-serif" font-size="7" letter-spacing="3">L U N O R</text>
+  </svg>`;
+}
+
+function showToast(message){
+  const toast=document.getElementById("toast");
+  toast.textContent=message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>toast.classList.remove("show"),2300);
+}
+
+function renderProducts(){
+  const grid=document.getElementById("productsGrid");
+  const query=document.getElementById("searchInput").value.trim().toLowerCase();
+  const color=document.getElementById("colorFilter").value;
+  const sort=document.getElementById("sortFilter").value;
+
+  let list=products.filter(p=>
+    (p.name+" "+p.color+" "+p.print+" "+p.sub).toLowerCase().includes(query) &&
+    (color==="all"||p.color===color)
+  );
+
+  if(sort==="name") list.sort((a,b)=>a.name.localeCompare(b.name));
+  if(sort==="price") list.sort((a,b)=>a.price-b.price);
+
+  if(!list.length){
+    grid.innerHTML='<p class="no-results">No designs found. Try another search or colour.</p>';
+    return;
+  }
+
+  grid.innerHTML=list.map(p=>`
+    <article class="product-card">
+      <div class="product-art" style="background:radial-gradient(ellipse at 50% 45%,${p.hex}35, #20201c 72%)">
+        <span class="product-tag">${p.tag}</span>
+        ${shirtSVG(p,"card"+p.id)}
+        <button class="quick-add" data-add="${p.id}">ADD TO BAG +</button>
+      </div>
+      <div class="product-info">
+        <div class="product-title-row">
+          <h3 class="product-name">${p.name}</h3>
+          <div class="product-price"><span class="old-price">₹${p.oldPrice}</span>₹${p.price}</div>
+        </div>
+        <p class="product-color"><span class="color-dot" style="background:${p.hex};border:1px solid #888"></span>${p.color} · Oversized fit</p>
+        <select class="product-size" id="size-${p.id}" aria-label="Choose size for ${p.name}">
+          <option value="M">Choose size — M</option>
+          <option value="S">S</option><option value="M">M</option><option value="L">L</option><option value="XL">XL</option><option value="XXL">XXL</option>
+        </select>
+      </div>
+    </article>
+  `).join("");
+
+  grid.querySelectorAll("[data-add]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const id=Number(button.dataset.add);
+      const size=document.getElementById("size-"+id).value;
+      addToCart(id,size);
+    });
+  });
+}
+
+function addToCart(id,size){
+  const product=products.find(p=>p.id===id);
+  if(!product)return;
+  const existing=cart.find(item=>item.id===id&&item.size===size);
+  if(existing) existing.qty++;
+  else cart.push({id,size,qty:1});
+  updateCart();
+  showToast(product.name+" added to your bag!");
+}
+
+function updateCart(){
+  const items=document.getElementById("cartItems");
+  const count=cart.reduce((sum,item)=>sum+item.qty,0);
+  const total=cart.reduce((sum,item)=>sum+products.find(p=>p.id===item.id).price*item.qty,0);
+
+  document.getElementById("cartCount").textContent=count;
+  document.getElementById("cartTotal").textContent="₹"+total.toLocaleString("en-IN");
+
+  if(!cart.length){
+    items.innerHTML='<div class="empty-cart">YOUR BAG IS EMPTY.<br>Find something that feels like you.</div>';
+    return;
+  }
+
+  items.innerHTML=cart.map(item=>{
+    const p=products.find(product=>product.id===item.id);
+    return `<div class="cart-item">
+      <div class="cart-thumb">${shirtSVG(p,"cart"+p.id+item.size)}</div>
+      <div>
+        <h3>${p.name}</h3>
+        <p>${p.color} · Size ${item.size} · ₹${p.price}</p>
+        <div class="quantity">
+          <button data-qty="${p.id}|${item.size}|-1" aria-label="Decrease quantity">−</button>
+          <span>${item.qty}</span>
+          <button data-qty="${p.id}|${item.size}|1" aria-label="Increase quantity">+</button>
+        </div>
+        <button class="remove-item" data-remove="${p.id}|${item.size}">Remove</button>
+      </div>
+      <strong style="font-size:12px">₹${(p.price*item.qty).toLocaleString("en-IN")}</strong>
+    </div>`;
+  }).join("");
+
+  items.querySelectorAll("[data-qty]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const [id,size,delta]=button.dataset.qty.split("|");
+      const item=cart.find(i=>i.id===Number(id)&&i.size===size);
+      if(item){
+        item.qty+=Number(delta);
+        if(item.qty<=0) cart=cart.filter(i=>i!==item);
+        updateCart();
+      }
+    });
+  });
+
+  items.querySelectorAll("[data-remove]").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const [id,size]=button.dataset.remove.split("|");
+      cart=cart.filter(i=>!(i.id===Number(id)&&i.size===size));
+      updateCart();
+      showToast("Item removed from your bag.");
+    });
+  });
+}
+
+function openCart(){
+  document.getElementById("cartPanel").classList.add("active");
+  document.getElementById("overlay").classList.add("active");
+  document.body.style.overflow="hidden";
+}
+function closeCart(){
+  document.getElementById("cartPanel").classList.remove("active");
+  document.getElementById("overlay").classList.remove("active");
+  document.body.style.overflow="";
+}
+
+document.getElementById("openCart").addEventListener("click",openCart);
+document.getElementById("closeCart").addEventListener("click",closeCart);
+document.getElementById("overlay").addEventListener("click",closeCart);
+document.addEventListener("keydown",event=>{if(event.key==="Escape")closeCart()});
+
+document.getElementById("searchInput").addEventListener("input",renderProducts);
+document.getElementById("colorFilter").addEventListener("change",renderProducts);
+document.getElementById("sortFilter").addEventListener("change",renderProducts);
+
+document.getElementById("checkout").addEventListener("click",()=>{
+  if(!cart.length){
+    showToast("Your bag is empty!");
+    return;
+  }
+
+  const lines=cart.map(item=>{
+    const p=products.find(product=>product.id===item.id);
+    return `${p.name} | Colour: ${p.color} | Size: ${item.size} | Qty: ${item.qty} | ₹${p.price*item.qty}`;
+  });
+
+  const total=cart.reduce((sum,item)=>sum+products.find(p=>p.id===item.id).price*item.qty,0);
+  const message=[
+    "Hi LUNOR! I want to enquire about placing an order.",
+    "",
+    ...lines,
+    "",
+    `Subtotal: ₹${total}`,
+    "",
+    "Please confirm availability, delivery charges and payment details.",
+    "Name:",
+    "Delivery city:",
+    "Full address:"
+  ].join("\n");
+
+  window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank","noopener");
+});
+
+document.getElementById("newsletterForm").addEventListener("submit",event=>{
+  event.preventDefault();
+  const email=document.getElementById("emailInput").value.trim();
+  if(!email)return;
+  const message=`Hi LUNOR! I'd like to join the club and receive drop updates. My email is: ${email}`;
+  window.open("https://wa.me/"+WHATSAPP_NUMBER+"?text="+encodeURIComponent(message),"_blank","noopener");
+  showToast("Opening WhatsApp to send your request!");
+  event.target.reset();
+});
+
+document.querySelectorAll('a[href="#shop"]').forEach(link=>{
+  link.addEventListener("click",()=>closeCart());
+});
+
+renderProducts();
+updateCart();
+</script>
+</body>
+</html>
